@@ -1,12 +1,12 @@
-variable "AMI_ID" {
+variable "ami_id" {
   type        = string
   description = "AMI_ID"
   default     = "ami-089a545a9ed9893b6"
 
 }
 
-variable "INSTANCE_TYPE" {
+variable "instance_type" {
   type        = string
   description = "type of ec2 instance"
-  default     = "t2.micro"
+  default     = "t3.micro"
 }
