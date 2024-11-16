@@ -1,7 +1,7 @@
 
 resource "aws_instance" "web-Server" {
-  ami           = var.ami_id
-  instance_type = var.instance_type
+  ami           = var.AMI_ID
+  instance_type = var.INSTANCE_TYPE
   monitoring    = true
   ebs_optimized = true
   root_block_device {
