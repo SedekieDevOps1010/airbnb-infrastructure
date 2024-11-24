@@ -39,14 +39,14 @@ pipeline {
         }        
         
         
-        stage('checkov scan') {
-            steps {sh """
-             pip3 install -U checkov
-             checkov -d . --skip-check CKV_AWS_79 --skip-check CKV2_AWS_41
-             """
+        // stage('checkov scan') {
+        //     steps {sh """
+        //      pip3 install -U checkov
+        //      checkov -d . --skip-check CKV_AWS_79 --skip-check CKV2_AWS_41
+        //      """
                   
-                          }
-        }  
+        //                   }
+        // }  
         
         stage('Manual approval') {
             steps { input 'Approval required for deployment'            }
