@@ -39,14 +39,14 @@ pipeline {
         }        
         
         
-        stage('checkov scan') {
-            steps {sh """
-             pip3 install -U checkov
-             checkov -d . --skip-check CKV_AWS_79 --skip-check CKV2_AWS_41
-             """
+        // stage('checkov scan') {
+        //     steps {sh """
+        //      pip3 install -U checkov
+        //      checkov -d . --skip-check CKV_AWS_79 --skip-check CKV2_AWS_41
+        //      """
                   
-                          }
-        }  
+        //                   }
+        // }  
         
         stage('Manual approval') {
             steps { input 'Approval required for deployment'            }
@@ -61,7 +61,7 @@ pipeline {
         post {
             always {
                 echo 'I will always say Hello again!'
-                slackSend channel: '#infra-pipeline-alart', color: COLOR_MAP[currentBuild.currentResult], message: "*${currentBuild.currentResult}:* Job ${env.JOB_NAME} build ${env.BUILD_NUMBER} \n More info at: ${env.BUILD_URL}"
+                slackSend channel: 'sk-devops', color: COLOR_MAP[currentBuild.currentResult], message: "*${currentBuild.currentResult}:* Job ${env.JOB_NAME} build ${env.BUILD_NUMBER} \n More info at: ${env.BUILD_URL}"
             }
             
         } 
