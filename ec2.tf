@@ -1,6 +1,6 @@
 
 resource "aws_instance" "web-Server" {
-  count = 2
+  count = 1
   ami           = var.AMI_ID
   instance_type = var.INSTANCE_TYPE
   monitoring    = true
